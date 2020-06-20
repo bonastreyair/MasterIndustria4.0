@@ -1,0 +1,846 @@
+[
+    {
+        "id": "9a2b0517.90b8a8",
+        "type": "tab",
+        "label": "3. Comunicaciones",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6bc158bf.f3804",
+        "type": "http in",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "url": "/download_json_file",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "b99e5154.21314"
+            ]
+        ]
+    },
+    {
+        "id": "fcaa0b41.24f1b",
+        "type": "http response",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4d15e07b.2be848",
+        "type": "file in",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 530,
+        "y": 140,
+        "wires": [
+            [
+                "6182d6a8.6343a8"
+            ]
+        ]
+    },
+    {
+        "id": "a19f1821.25cc7",
+        "type": "websocket in",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "server": "6bbd5c00.29be54",
+        "client": "",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "eecdc40b.ff0178",
+                "73d77960.a43088"
+            ]
+        ]
+    },
+    {
+        "id": "b2e52d83.bedc18",
+        "type": "websocket out",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "server": "6bbd5c00.29be54",
+        "client": "",
+        "x": 810,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e089606a.dc865",
+        "type": "websocket in",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "server": "",
+        "client": "b305fc40.15869",
+        "x": 750,
+        "y": 700,
+        "wires": [
+            [
+                "bce3af66.632d18"
+            ]
+        ]
+    },
+    {
+        "id": "bce3af66.632d18",
+        "type": "debug",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1150,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "67908afa.7644d4",
+        "type": "websocket out",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "server": "",
+        "client": "b305fc40.15869",
+        "x": 420,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "bd5372ac.80c85",
+        "type": "inject",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "67908afa.7644d4"
+            ]
+        ]
+    },
+    {
+        "id": "e523c6a4.fc3de",
+        "type": "http request",
+        "z": "9a2b0517.90b8a8",
+        "name": "GET server_status",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "iiot-upc.gleeze.com:1880/server_status",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "b981d3cb.31a07"
+            ]
+        ]
+    },
+    {
+        "id": "244f8ff9.7035b8",
+        "type": "inject",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "e523c6a4.fc3de"
+            ]
+        ]
+    },
+    {
+        "id": "b981d3cb.31a07",
+        "type": "debug",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 550,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "aa24970d.74dc1",
+        "type": "comment",
+        "z": "9a2b0517.90b8a8",
+        "name": "server http",
+        "info": "",
+        "x": 80,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9261b761.d11918",
+        "type": "comment",
+        "z": "9a2b0517.90b8a8",
+        "name": "client http",
+        "info": "",
+        "x": 80,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "88705957.1af64",
+        "type": "comment",
+        "z": "9a2b0517.90b8a8",
+        "name": "client ws",
+        "info": "",
+        "x": 80,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "f71396d3.319df",
+        "type": "comment",
+        "z": "9a2b0517.90b8a8",
+        "name": "server ws",
+        "info": "",
+        "x": 80,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "39846087.43418",
+        "type": "http request",
+        "z": "9a2b0517.90b8a8",
+        "name": "api-openweathermap",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": true,
+        "url": "api.openweathermap.org/data/2.5/weather?",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 280,
+        "y": 940,
+        "wires": [
+            [
+                "6cbd0d1.f64e3f4"
+            ]
+        ],
+        "icon": "font-awesome/fa-sun-o"
+    },
+    {
+        "id": "57310a16.744204",
+        "type": "inject",
+        "z": "9a2b0517.90b8a8",
+        "name": "check",
+        "topic": "",
+        "payload": "{\"appid\":\"77bd9f189bbad73a37a29e0633861f1f\",\"lat\":41.912653,\"lon\":2.804697,\"units\":\"metric\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 940,
+        "wires": [
+            [
+                "39846087.43418"
+            ]
+        ]
+    },
+    {
+        "id": "6cbd0d1.f64e3f4",
+        "type": "debug",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 470,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "1cf58583.c4925a",
+        "type": "debug",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 470,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "5ac4bd41.1ed434",
+        "type": "http request",
+        "z": "9a2b0517.90b8a8",
+        "name": "api-wheretheiss",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "https://api.wheretheiss.at/v1/satellites/25544",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 260,
+        "y": 900,
+        "wires": [
+            [
+                "1cf58583.c4925a"
+            ]
+        ],
+        "icon": "font-awesome/fa-sun-o"
+    },
+    {
+        "id": "cb075d84.3e9ca",
+        "type": "inject",
+        "z": "9a2b0517.90b8a8",
+        "name": "check",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 900,
+        "wires": [
+            [
+                "5ac4bd41.1ed434"
+            ]
+        ]
+    },
+    {
+        "id": "b80f12bd.f5e4c",
+        "type": "http in",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "url": "/server_status",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "785b6638.d6b7e8"
+            ]
+        ]
+    },
+    {
+        "id": "785b6638.d6b7e8",
+        "type": "change",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$now('HTTP server time is [Y0000]-[M00]-[D00] [H00]:[m00]:[s00]')\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "4f6cb867.284a88"
+            ]
+        ]
+    },
+    {
+        "id": "4f6cb867.284a88",
+        "type": "http response",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "bf6cd34a.936fa",
+        "type": "websocket in",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "server": "8415a8c0.27e148",
+        "client": "",
+        "x": 150,
+        "y": 600,
+        "wires": [
+            [
+                "9a9437e6.4bf708"
+            ]
+        ]
+    },
+    {
+        "id": "a8980fc0.af106",
+        "type": "websocket out",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "server": "8415a8c0.27e148",
+        "client": "",
+        "x": 850,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c9c6df2d.39e08",
+        "type": "json",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 650,
+        "y": 600,
+        "wires": [
+            [
+                "a8980fc0.af106"
+            ]
+        ]
+    },
+    {
+        "id": "e43a7d38.e95a5",
+        "type": "change",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$now('websocket >> Server time is [Y0000]-[M00]-[D00] [H00]:[m00]:[s00]')\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 520,
+        "wires": [
+            [
+                "b2e52d83.bedc18",
+                "fa8af4e4.dc96a8"
+            ]
+        ]
+    },
+    {
+        "id": "fa8af4e4.dc96a8",
+        "type": "delay",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "pauseType": "delayv",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 500,
+        "y": 560,
+        "wires": [
+            [
+                "e43a7d38.e95a5"
+            ]
+        ]
+    },
+    {
+        "id": "eecdc40b.ff0178",
+        "type": "change",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "You are now connected to /server_status and recieving the server time every 1 second",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 480,
+        "wires": [
+            [
+                "b2e52d83.bedc18"
+            ]
+        ]
+    },
+    {
+        "id": "73d77960.a43088",
+        "type": "delay",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "pauseType": "delayv",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 320,
+        "y": 520,
+        "wires": [
+            [
+                "e43a7d38.e95a5"
+            ]
+        ]
+    },
+    {
+        "id": "92fbb2b7.e7328",
+        "type": "file in",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 530,
+        "y": 600,
+        "wires": [
+            [
+                "c9c6df2d.39e08"
+            ]
+        ]
+    },
+    {
+        "id": "9a9437e6.4bf708",
+        "type": "function",
+        "z": "9a2b0517.90b8a8",
+        "name": "set msg.filename",
+        "func": "msg.filename = \"/data/\" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 600,
+        "wires": [
+            [
+                "92fbb2b7.e7328"
+            ]
+        ]
+    },
+    {
+        "id": "b99e5154.21314",
+        "type": "function",
+        "z": "9a2b0517.90b8a8",
+        "name": "set msg.filename",
+        "func": "msg.filename = \"/data/\" + msg.payload.file_name;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "4d15e07b.2be848"
+            ]
+        ]
+    },
+    {
+        "id": "c62b346a.dfbc18",
+        "type": "websocket in",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "server": "",
+        "client": "f80d369b.ec4678",
+        "x": 770,
+        "y": 760,
+        "wires": [
+            [
+                "8021157.e6371e8"
+            ]
+        ]
+    },
+    {
+        "id": "7f589b66.893ab4",
+        "type": "debug",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1150,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "884bb062.e83be",
+        "type": "websocket out",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "server": "",
+        "client": "f80d369b.ec4678",
+        "x": 400,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "6feb4732.8043e8",
+        "type": "inject",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "topic": "",
+        "payload": "test.json",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 760,
+        "wires": [
+            [
+                "884bb062.e83be"
+            ]
+        ]
+    },
+    {
+        "id": "8021157.e6371e8",
+        "type": "json",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1010,
+        "y": 760,
+        "wires": [
+            [
+                "7f589b66.893ab4"
+            ]
+        ]
+    },
+    {
+        "id": "e27149f.f2578b8",
+        "type": "comment",
+        "z": "9a2b0517.90b8a8",
+        "name": "APIs",
+        "info": "",
+        "x": 70,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "2acfb523.7d2f0a",
+        "type": "inject",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "topic": "",
+        "payload": "{\"file_name\":\"test.json\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "c9987a66.5b5b88"
+            ]
+        ]
+    },
+    {
+        "id": "c9987a66.5b5b88",
+        "type": "http request",
+        "z": "9a2b0517.90b8a8",
+        "name": "GET download_json_file",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": true,
+        "url": "iiot-upc.gleeze.com:1880/download_json_file",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "3e1cc3bb.58ddfc"
+            ]
+        ]
+    },
+    {
+        "id": "3e1cc3bb.58ddfc",
+        "type": "debug",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 550,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "322ca25d.55621e",
+        "type": "http in",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "url": "/download_json_file",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "b99e5154.21314"
+            ]
+        ]
+    },
+    {
+        "id": "6182d6a8.6343a8",
+        "type": "json",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "fcaa0b41.24f1b"
+            ]
+        ]
+    },
+    {
+        "id": "122e6dc3.5b95a2",
+        "type": "http request",
+        "z": "9a2b0517.90b8a8",
+        "name": "PUT download_json_file",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": true,
+        "url": "iiot-upc.gleeze.com:1880/download_json_file",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "3e1cc3bb.58ddfc"
+            ]
+        ]
+    },
+    {
+        "id": "bd80cae6.34e338",
+        "type": "inject",
+        "z": "9a2b0517.90b8a8",
+        "name": "",
+        "topic": "",
+        "payload": "{\"file_name\":\"test.json\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 340,
+        "wires": [
+            [
+                "122e6dc3.5b95a2"
+            ]
+        ]
+    },
+    {
+        "id": "6bbd5c00.29be54",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/server_status",
+        "wholemsg": "false"
+    },
+    {
+        "id": "b305fc40.15869",
+        "type": "websocket-client",
+        "z": "",
+        "path": "ws://localhost:1880/server_status",
+        "tls": "",
+        "wholemsg": "false"
+    },
+    {
+        "id": "8415a8c0.27e148",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/download_json_file",
+        "wholemsg": "false"
+    },
+    {
+        "id": "f80d369b.ec4678",
+        "type": "websocket-client",
+        "z": "",
+        "path": "ws://localhost:1880/download_json_file",
+        "tls": "",
+        "wholemsg": "false"
+    }
+]
